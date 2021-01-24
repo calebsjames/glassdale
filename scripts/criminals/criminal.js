@@ -4,8 +4,8 @@ export const Criminals = (criminal) => {
         <b>${criminal.name}</b> <br>
         <b>Age: </b>${criminal.age} <br>
         <b>Crime: </b>${criminal.conviction}<br>
-        <b>Term start: </b>${criminal.incarceration.start}<br>
-        <b>Term end: </b>${criminal.incarceration.end}<br>
+        <b>Term start: </b>${new Date(criminal.incarceration.start).toLocaleDateString('en-US')}<br>
+        <b>Term end: </b>${new Date(criminal.incarceration.end).toLocaleDateString('en-US')}<br>
         </p>
     `
 }

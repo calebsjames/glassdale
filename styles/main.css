@@ -1,4 +1,14 @@
+h3 {
+    margin: 10px;
+}
 .criminalList {
     display: flex;
     flex-wrap: wrap
+}
+
+.criminal {
+    margin: 10px;
+    padding: 10px;
+    border: 2px black dotted;
+    flex: 10%
 }
