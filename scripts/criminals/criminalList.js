@@ -3,7 +3,11 @@ import {Criminals} from "./Criminal.js"
 
 const criminalContainer = document.querySelector(".criminalsContainer")
 
-export const criminalList = () => {
+cj-glassdaleCSS
+export const CriminalList = () => {
+=======
+export const CriminalList = () => {
+main
 
     getCriminals()
         .then(() => {

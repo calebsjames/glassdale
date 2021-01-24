@@ -1,3 +1,8 @@
+cj-glassdaleCSS
+import { CriminalList } from "./criminals/CriminalList.js";
+
+CriminalList()
+=======
 import { getOfficers } from './officers/officerDataProvider.js'
 getOfficers();
 
@@ -6,7 +11,8 @@ getCriminals();
 useCriminals();
 
 
-import { criminalList } from "./criminals/CriminalList.js";
+import { CriminalList } from "./criminals/CriminalList.js";
 
 criminalList()
 console.log(useCriminals())
+main
