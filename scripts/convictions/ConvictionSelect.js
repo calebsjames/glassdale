@@ -24,17 +24,30 @@ const render = convictionsCollection => {
         the convictionsCollection to generate the option elements.
         Look back at the example provided above.
     */
+<<<<<<< HEAD
     // const selectConviction = convictions.map(
     //     convictionObject => {
     //         const convictionValue = convictionObject.conviction;
     //         return convictionValue;
     //     }
     // )
+=======
+    const selectConviction = convictions.map(
+        convictionObject => {
+            const convictionValue = convictionObject.conviction;
+            return convictionValue;
+        }
+    )
+>>>>>>> 9955729d4cfd7234e762772015e2378d41c98880
     contentTarget.innerHTML = `
         <select class="dropdown" id="crimeSelect">
             <option value="0">Please select a crime...</option>
             ${
+<<<<<<< HEAD
                 convictionsCollection.map()
+=======
+                something.map()
+>>>>>>> 9955729d4cfd7234e762772015e2378d41c98880
             }
         </select>
     `
