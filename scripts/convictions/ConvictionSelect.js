@@ -46,6 +46,7 @@ const render = convictionsCollection => {
         the convictionsCollection to generate the option elements.
         Look back at the example provided above.
     */
+
     /*  The convictionsCollection.map() will iterate through an array that looks like this:
     // [
     //   {
