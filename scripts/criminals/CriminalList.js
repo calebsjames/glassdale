@@ -53,8 +53,10 @@ eventHub.addEventListener("crimeChosen", crimeChosenEvent => {
 
 eventHub.addEventListener("officerSelect", officerChosenEvent => {
     if (officerChosenEvent.detail.officer !== "0") {
-        debugger
+        const officerName = officerChosenEvent.detail.selectedOfficerName
+        
         const officerArray = useOfficers()
+        debugger
 
         const chosenOfficerObject = officerArray.find(officerObj => {
             console.log("currently checking", officerObj)
