@@ -3,3 +3,6 @@ CriminalList()
 
 import { ConvictionSelect } from "./convictions/ConvictionSelect.js"
 ConvictionSelect()
+
+import { OfficerSelect } from "./officers/OfficerSelect.js";
+OfficerSelect()
