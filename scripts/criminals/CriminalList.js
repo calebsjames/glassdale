@@ -41,7 +41,7 @@ eventHub.addEventListener("crimeChosen", crimeChosenEvent => {
         })
         console.log(chosenConvictionObject.name)
         
-        debugger
+        // debugger
         const criminalArray = useCriminals()
 
         const filteredCriminalsArray = criminalArray.filter(criminalObj => criminalObj.conviction === chosenConvictionObject.name)
