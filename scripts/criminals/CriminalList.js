@@ -37,12 +37,12 @@ eventHub.addEventListener("crimeChosen", crimeChosenEvent => {
         const convictionsArray = useConvictions()
         
         const chosenConvictionObject = convictionsArray.find(convictionObj => {
-            console.log("currently checking", convictionObj)
+            // console.log("currently checking", convictionObj)
             return convictionObj.id === parseInt(crimeChosenEvent.detail.crimeThatWasChosen)
         })
         console.log(chosenConvictionObject.name)
         
-        // debugger
+        
         const criminalArray = useCriminals()
 
         const filteredCriminalsArray = criminalArray.filter(criminalObj => criminalObj.conviction === chosenConvictionObject.name)
@@ -53,13 +53,19 @@ eventHub.addEventListener("crimeChosen", crimeChosenEvent => {
 
 eventHub.addEventListener("officerSelect", officerChosenEvent => {
     if (officerChosenEvent.detail.officer !== "0") {
+        
+        const officerName = officerChosenEvent.detail.selectedOfficer
+        
+        const criminals = useCriminals()
         debugger
-        const officerArray = useOfficers()
 
-        const chosenOfficerObject = officerArray.find(officerObj => {
-            console.log("currently checking", officerObj)
-            return officerObj.id === parseInt(officerChosenEvent.detail.officerThatWasChosen)
-        })
-        console.log(chosenOfficerObject.name)
+        const chosenOfficerObject = criminals.filter(
+            criminalObject => {
+                if (criminalObject.arrestingOfficer === officerName) {
+                    return true
+                }
+            }
+        ) 
+        renderToDom(chosenOfficerObject)
     }
 })
