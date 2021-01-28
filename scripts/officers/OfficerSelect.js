@@ -17,10 +17,10 @@ eventHub.addEventListener("change", changeEvent => {
         //gets the name of the currently selected officer
         const selectedOfficer = changeEvent.target.value
         
-        //...create new custom event to be dispatched
+        //create new custom event to be dispatched
         const officerSelectedCustomEvent = new CustomEvent("officerSelect", {
             detail: {
-                officer: selectedOfficer
+                selectedOfficer: selectedOfficer
             }
         })
         //dispatch the custom event

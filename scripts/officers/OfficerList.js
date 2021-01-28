@@ -1,4 +1,4 @@
-import { getOfficers, useOfficers } from "./OfficerProvider.js"
+import { getOfficers, useOfficers } from "./OfficerDataProvider.js"
 import { Officer } from "./Officer.js"
 
 const officersContainer = document.querySelector(".officersContainer")
@@ -8,11 +8,11 @@ export const OfficerList = () => {
   getOfficers()
     .then(() => {
       const officerArray = useOfficers()
-      // debugger
-      /*
-            Now that you have the data, what
-            component should be rendered?
-        */
+      renderToDom(officerArray)
+    })
+}
+
+const renderToDom = (officerArray) => {
 
       let officersHTMLRepresentations = ""
 
@@ -26,5 +26,5 @@ export const OfficerList = () => {
         <section class="officersList">
         ${officersHTMLRepresentations}
         </section>`
-    })
 }
+
