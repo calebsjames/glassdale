@@ -6,12 +6,12 @@ const dispatchStateChangeEvent = () => {
     eventHub.dispatchEvent(noteStateChangedEvent)
 }
 
-let notes = []
+let note = []
 export const getNotes = () => {
     return fetch('http://localhost:8088/notes')
         .then(response => response.json())
         .then(parsedNotes => {
-            notes = parsedNotes
+            note = parsedNotes
         })
 
 }
