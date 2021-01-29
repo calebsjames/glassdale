@@ -16,7 +16,7 @@ NoteForm()
 import { ShowNoteButton } from "./notes/ShowNotesButton.js";
 ShowNoteButton()
 
-import { saveNote } from "./notes/NoteDataProvider.js"
-saveNote()
+// import { saveNote } from "./notes/NoteDataProvider.js"
+// saveNote()
 
 import "./notes/NoteList.js"
