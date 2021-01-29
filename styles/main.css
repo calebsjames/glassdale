@@ -12,3 +12,7 @@ h3 {
     border: 2px black dotted;
     flex: 10%
 }
+
+.box {
+    display: flex;
+}

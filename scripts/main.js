@@ -20,3 +20,6 @@ ShowNoteButton()
 // saveNote()
 
 import "./notes/NoteList.js"
+
+import "./alibis/AlibisButton.js"
+import "./alibis/AlibisList.js"
