@@ -11,7 +11,7 @@ const render = () => {
     <article class="noteBox">
         <input type="date" id="noteDate"><br>
         <label for="noteText">Text:</label><br>
-        <input type="text" size=50 id="noteText"><br>
+        <textarea rows="5" cols="46" id="noteText"></textarea><br>
         <label for="suspect">Suspect:</label><br>
         <input type="text" size=50 id="suspect"><br>
         <label for="author">Author:</label><br>

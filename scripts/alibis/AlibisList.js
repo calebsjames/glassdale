@@ -22,9 +22,8 @@ const renderToDom = (alibiCollection) => {
     }
 
     alibiContainer.innerHTML = `
-        <h3>Alibis</h3>
+        <h3>Alibis for known associates of ${alibiCollection.name}</h3>
         <setion class="alibiList">
-        <b>${alibiCollection.name}</b> <br>
         ${alibiHTMLRepresentation}
         </section>
         `
