@@ -58,7 +58,7 @@ eventHub.addEventListener("officerSelect", officerChosenEvent => {
         
         const criminals = useCriminals()
 
-        debugger
+        
 
         const chosenOfficerObject = criminals.filter(
             criminalObject => {

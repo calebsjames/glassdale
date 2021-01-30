@@ -3,6 +3,7 @@ import { NoteHTMLConverter } from "./Note.js";
 
 // Query the DOM for the element that your notes will be added to 
 const contentTarget = document.querySelector(".notesAside")
+const noteContainerTarget = document.querySelector(".notesContainer")
 // Define ye olde Evente Hubbe
 const eventHub = document.querySelector(".container")
 
@@ -18,8 +19,8 @@ const render = (noteArray) => {
 
     ).join("")
 
-    contentTarget.innerHTML = `
-        <h3>Notes</h3>
+    noteContainerTarget.innerHTML = `
+        <h3 style="margin-top: 30px">Archived Notes</h3>
         <section class="notesList">
         ${allNotesConvertedToStrings}
         </section>`

@@ -34,6 +34,7 @@ h3 {
 
 .noteListButton {
     margin-top: 10px;
+    margin-bottom: 10px;
 }
 
 .notesTitle {
@@ -56,4 +57,31 @@ h3 {
 
 #noteText {
     height: 200px;
+    resize: vertical;
+}
+
+#gpd {
+    text-align: center;
+    margin-top: 36px;
+    margin-bottom: 0px;
+}
+
+#slogan {
+    text-align: center;
+    margin-top: 8px;
+    margin-bottom: 36px;
+    font-style: italic;
+}
+
+.alibis {
+    margin-left: 10px;
+    margin-top: 8px; 
+}
+
+.notesList {
+    margin-left: 10px;
+}
+
+.note {
+    padding-bottom: 10px; 
 }
