@@ -2,7 +2,7 @@ import { getNotes, useNotes } from "./NoteDataProvider.js";
 import { NoteHTMLConverter } from "./Note.js";
 
 // Query the DOM for the element that your notes will be added to 
-const contentTarget = document.querySelector(".notesContainer")
+const contentTarget = document.querySelector(".notesAside")
 // Define ye olde Evente Hubbe
 const eventHub = document.querySelector(".container")
 
@@ -19,10 +19,10 @@ const render = (noteArray) => {
     ).join("")
 
     contentTarget.innerHTML = `
-    <h3>NOTES</h3>
-    <section class="notesList">
-    ${allNotesConvertedToStrings}
-    </section>`
+        <h3>Notes</h3>
+        <section class="notesList">
+        ${allNotesConvertedToStrings}
+        </section>`
 }
 
 // Standard list function you're used to writing by now. BUT, don't call this in main.js! Why not?
