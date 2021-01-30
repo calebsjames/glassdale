@@ -3,7 +3,8 @@ h3 {
 }
 .criminalList {
     display: flex;
-    flex-wrap: wrap
+    flex-wrap: wrap;
+    border: black solid 2px;
 }
 
 .criminal {
@@ -15,4 +16,44 @@ h3 {
 
 .box {
     display: flex;
+}
+
+.noteBox {
+    border: solid black 2px;
+    margin: 0px 10px 10px 10px;
+    padding: 10px;
+}
+
+.criminalContainer {
+    border: solid black 2px
+}
+
+#saveNote {
+    margin-top: 10px;
+}
+
+.noteListButton {
+    margin-top: 10px;
+}
+
+.notesTitle {
+    padding-left: 15px;
+    margin-bottom: 0px;
+}
+
+#showNotes {
+    margin-left: 10px;
+}
+
+.filters {
+    display: flex;
+}
+
+#or {
+    margin-top: 0px;
+    padding: 0px 10px;
+}
+
+#noteText {
+    height: 200px;
 }
