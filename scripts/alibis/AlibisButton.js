@@ -9,6 +9,7 @@ eventHub.addEventListener("click", clickEvent => {
         const customEvent = new CustomEvent("alibiButtonClicked", {
             detail: {
                 selectedCriminal: selectedCriminal
+                
             }            
         })
         eventHub.dispatchEvent(customEvent)

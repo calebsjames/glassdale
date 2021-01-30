@@ -17,36 +17,39 @@ export const AlibiList = () => {
 const renderToDom = (alibiCollection) => {
     let alibiHTMLRepresentation = ""
 
-    for (const alibi of alibiCollection) {
+    for (const alibi of alibiCollection.known_associates) {
         alibiHTMLRepresentation += AlibisHTML(alibi)
     }
 
     alibiContainer.innerHTML = `
         <h3>Alibis</h3>
         <setion class="alibiList">
+        <b>${alibiCollection.name}</b> <br>
         ${alibiHTMLRepresentation}
         </section>
-    `
-}
-
-const chosenCriminalObj = (criminalName) => {
-    let alibiArray = useCriminals()
+        `
+    }
     
-    const chosenCriminal = alibiArray.find(criminalObj => {
-        return criminalObj.value === criminalName
-    })
-    debugger
-    return chosenCriminal
-}
-console.log(chosenCriminalObj.name)
-console.log(chosenCriminalObj.known_associates)
+    
+    eventHub.addEventListener("alibiButtonClicked", alibiButtonEvent => {
+        const chosenCriminalName = alibiButtonEvent.detail.selectedCriminal
+        // console.log(chosenCriminal)
+        
+        // const chosenCriminalObj = () => {
+            let criminalArray = useCriminals()
+            
+            // console.log(chosenCriminalObj.known_associates)
+            // console.log(chosenCriminalObj.name)
+            const chosenCriminal = criminalArray.find(criminalObj => {
+                return criminalObj.name === chosenCriminalName
+            })
+            // console.log(chosenCriminal)
+            // debugger
+        // return chosenCriminal
+    // }
 
-eventHub.addEventListener("alibiButtonClicked", alibiButtonEvent => {
-    const chosenCriminal = alibiButtonEvent.detail
-    console.log(chosenCriminal)
-
-        return chosenCriminal
+        
 
 
-    // renderToDom(AlibisHTML)
+     renderToDom(chosenCriminal)
 })
