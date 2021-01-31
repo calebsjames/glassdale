@@ -18,7 +18,7 @@ const renderToDom = (officerArray) => {
 
       for (const officer of officerArray) {
         officersHTMLRepresentations += Officer(officer)
-        // debugger
+        
       }
       
       officersContainer.innerHTML = `

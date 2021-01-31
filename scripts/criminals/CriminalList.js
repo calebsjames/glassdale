@@ -1,6 +1,10 @@
 import { getCriminals, useCriminals } from "./CriminalDataProvider.js"
 import { Criminals } from "./Criminal.js"
 import { useConvictions } from "../convictions/ConvictionProvider.js"
+import { getWitnesses, useWitness } from "../witnesses/WitnessDataProvider.js"
+import { Witness } from "../witnesses/Witnesses.js"
+
+
 // import { useOfficers } from "../officers/OfficerDataProvider.js"
 
 const eventHub = document.querySelector(".container")
@@ -12,11 +16,11 @@ export const CriminalList = () => {
     getCriminals()
         .then(() => {
             const criminalArray = useCriminals()
-            renderToDom(criminalArray)
+            criminalToDom(criminalArray)
         })
 }
 
-const renderToDom = (criminalCollection) => {
+const criminalToDom = (criminalCollection) => {
 
     let criminalHTMLRepresentation = ""
     
@@ -48,7 +52,7 @@ eventHub.addEventListener("crimeChosen", crimeChosenEvent => {
 
         const filteredCriminalsArray = criminalArray.filter(criminalObj => criminalObj.conviction === chosenConvictionObject.name)
 
-        renderToDom(filteredCriminalsArray)
+        criminalToDom(filteredCriminalsArray)
     }
 })
 
@@ -68,6 +72,48 @@ eventHub.addEventListener("officerSelect", officerChosenEvent => {
                 }
             }
         ) 
-        renderToDom(chosenOfficerObject)
+        criminalToDom(chosenOfficerObject)
     }
+})
+
+
+
+
+
+
+
+
+
+
+
+
+const witnessToDom = (witnessCollection) => {
+    
+    let witnessHTMLRepresentation = ""
+    for (const witness of witnessCollection) {
+        witnessHTMLRepresentation += Witness(witness)
+    }
+    
+    
+    criminalContainer.innerHTML = `
+    <button id="criminalButton"><h4>Criminals</h4></button>
+    <button id="witnessButton"><h4>Witnesses</h4></button>
+    <section class="witnessList">
+    ${witnessHTMLRepresentation}
+    </section>`   
+}
+
+const WitnessList = () => {
+
+    getWitnesses()
+        .then(() => {
+            const witnessArray = useWitness()
+            witnessToDom(witnessArray)
+        })
+}
+
+
+eventHub.addEventListener("showWitnesses", event => {
+
+    WitnessList()      
 })

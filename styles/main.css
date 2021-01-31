@@ -24,8 +24,17 @@ h3 {
     padding: 10px;
 }
 
-.criminalContainer {
-    border: solid black 2px
+.witnessList {
+    display: flex;
+    flex-wrap: wrap;
+    border: black solid 2px;
+}
+
+.witness {
+    margin: 10px;
+    padding: 10px;
+    border: 2px black dotted;
+    flex: 10%
 }
 
 #saveNote {
