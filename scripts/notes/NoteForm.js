@@ -7,7 +7,7 @@ const contentTarget = document.querySelector(".noteFormContainer")
 
 const render = () => {
     contentTarget.innerHTML = `
-    <h3>NOTES</h3>
+    <h3 id="noteHeader">NOTES</h3>
     <article class="noteBox">
         <input type="date" id="noteDate"><br>
         <label for="noteText">Text:</label><br>

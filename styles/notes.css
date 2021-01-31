@@ -1,0 +1,40 @@
+#saveNote {
+    margin-top: 10px;
+}
+
+.noteListButton {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.notesTitle {
+    padding-left: 15px;
+    margin-bottom: 0px;
+}
+
+#showNotes {
+    margin-left: 10px;
+}
+
+.notesList {
+    margin-left: 10px;
+}
+
+.note {
+    padding-bottom: 10px; 
+}
+
+#noteHeader {
+    margin-top: 26px;
+}
+
+#noteText {
+    height: 200px;
+    resize: vertical;
+}
+
+.noteBox {
+    border: solid black 2px;
+    margin: 0px 10px 10px 10px;
+    padding: 10px;
+}
