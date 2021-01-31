@@ -5,8 +5,6 @@ import { getWitnesses, useWitness } from "../witnesses/WitnessDataProvider.js"
 import { Witness } from "../witnesses/Witnesses.js"
 
 
-// import { useOfficers } from "../officers/OfficerDataProvider.js"
-
 const eventHub = document.querySelector(".container")
 const criminalContainer = document.querySelector(".criminalsContainer")
 
@@ -36,6 +34,8 @@ const criminalToDom = (criminalCollection) => {
         </section>`
 }
 
+
+//event listener to filter criminal list by crime
 eventHub.addEventListener("crimeChosen", crimeChosenEvent => {
     if (crimeChosenEvent.detail.crimeThatWasChosen !== "0") {
         
@@ -45,9 +45,7 @@ eventHub.addEventListener("crimeChosen", crimeChosenEvent => {
             // console.log("currently checking", convictionObj)
             return convictionObj.id === parseInt(crimeChosenEvent.detail.crimeThatWasChosen)
         })
-        console.log(chosenConvictionObject.name)
-        
-        
+            
         const criminalArray = useCriminals()
 
         const filteredCriminalsArray = criminalArray.filter(criminalObj => criminalObj.conviction === chosenConvictionObject.name)
@@ -56,14 +54,14 @@ eventHub.addEventListener("crimeChosen", crimeChosenEvent => {
     }
 })
 
+
+//event listener to filter criminals by arresting officer
 eventHub.addEventListener("officerSelect", officerChosenEvent => {
-    if (officerChosenEvent.detail.officer !== "0") {
-        
-        const officerName = officerChosenEvent.detail.selectedOfficer
+    if (officerChosenEvent.detail.selectedOfficer !== "0") {
         
         const criminals = useCriminals()
-
         
+        const officerName = officerChosenEvent.detail.selectedOfficer
 
         const chosenOfficerObject = criminals.filter(
             criminalObject => {
@@ -116,4 +114,8 @@ const WitnessList = () => {
 eventHub.addEventListener("showWitnesses", event => {
 
     WitnessList()      
+})
+
+eventHub.addEventListener("showCriminals", event => {
+    CriminalList()
 })

@@ -1,96 +1,13 @@
+@import "header.css";
+@import "criminalList.css";
+@import "notes.css";
+@import "witnesses.css";
+@import "alibis.css";
+
 h3 {
     margin: 10px;
-}
-.criminalList {
-    display: flex;
-    flex-wrap: wrap;
-    border: black solid 2px;
-}
-
-.criminal {
-    margin: 10px;
-    padding: 10px;
-    border: 2px black dotted;
-    flex: 10%
 }
 
 .box {
     display: flex;
-}
-
-.noteBox {
-    border: solid black 2px;
-    margin: 0px 10px 10px 10px;
-    padding: 10px;
-}
-
-.witnessList {
-    display: flex;
-    flex-wrap: wrap;
-    border: black solid 2px;
-}
-
-.witness {
-    margin: 10px;
-    padding: 10px;
-    border: 2px black dotted;
-    flex: 10%
-}
-
-#saveNote {
-    margin-top: 10px;
-}
-
-.noteListButton {
-    margin-top: 10px;
-    margin-bottom: 10px;
-}
-
-.notesTitle {
-    padding-left: 15px;
-    margin-bottom: 0px;
-}
-
-#showNotes {
-    margin-left: 10px;
-}
-
-.filters {
-    display: flex;
-}
-
-#or {
-    margin-top: 0px;
-    padding: 0px 10px;
-}
-
-#noteText {
-    height: 200px;
-    resize: vertical;
-}
-
-#gpd {
-    text-align: center;
-    margin-top: 36px;
-    margin-bottom: 0px;
-}
-
-#slogan {
-    text-align: center;
-    margin-top: 8px;
-    margin-bottom: 36px;
-    font-style: italic;
-}
-
-.alibis {
-    margin-left: 10px;
-    margin-top: 8px; 
-}
-
-.notesList {
-    margin-left: 10px;
-}
-
-.note {
-    padding-bottom: 10px; 
 }
