@@ -16,6 +16,8 @@ NoteForm()
 import { ShowNoteButton } from "./notes/ShowNotesButton.js";
 ShowNoteButton()
 
+import { WitnessList } from "./witnesses/WitnessList.js";
+WitnessList()
 
 // import { ClearNoteButton } from "./notes/ClearButton.js";
 // ClearNoteButton()
@@ -23,3 +25,4 @@ ShowNoteButton()
 import "./notes/NoteList.js"
 import "./alibis/AlibisButton.js"
 import "./alibis/AlibisList.js"
+

@@ -25,7 +25,8 @@ const renderToDom = (criminalCollection) => {
     }
     
     criminalContainer.innerHTML = `
-        <h3><button id="criminalCriminals</h3>
+        <button id="criminalButton"><h4>Criminals</h4></button>
+        <button id="witnessButton"><h4>Witnesses</h4></button>
         <section class="criminalList">
         ${criminalHTMLRepresentation}
         </section>`
