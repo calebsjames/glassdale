@@ -27,8 +27,8 @@ const criminalToDom = (criminalCollection) => {
     }
     
     criminalContainer.innerHTML = `
-        <button id="criminalButton"><h4>Criminals</h4></button>
-        <button id="witnessButton"><h4>Witnesses</h4></button>
+        <button id="criminalButton">Criminals</button>
+        <button id="witnessButton">Witnesses</button>
         <section class="criminalList">
         ${criminalHTMLRepresentation}
         </section>`
@@ -94,8 +94,8 @@ const witnessToDom = (witnessCollection) => {
     
     
     criminalContainer.innerHTML = `
-    <button id="criminalButton"><h4>Criminals</h4></button>
-    <button id="witnessButton"><h4>Witnesses</h4></button>
+    <button id="criminalButton">Criminals</button>
+    <button id="witnessButton">Witnesses</button>
     <section class="witnessList">
     ${witnessHTMLRepresentation}
     </section>`   
