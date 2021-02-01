@@ -9,7 +9,7 @@
 
 .notesTitle {
     padding-left: 15px;
-    margin-bottom: 0px;
+    margin: 0px 10px;
 }
 
 #showNotes {
@@ -33,4 +33,8 @@
     border: solid black 2px;
     margin: 0px 10px 10px 10px;
     padding: 10px;
+}
+
+#noteHeader {
+    margin: 0px 10px
 }
