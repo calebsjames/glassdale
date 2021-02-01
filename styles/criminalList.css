@@ -10,3 +10,7 @@
     border: 2px black dotted;
     flex: 10%
 }
+
+.criminalButton {
+    margin: 10px;
+}

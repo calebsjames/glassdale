@@ -40,3 +40,7 @@ eventHub.addEventListener("noteStateChanged", event => {
         NoteList()
     }
 })
+
+eventHub.addEventListener("clearNotesClicked", customEvent => {
+    noteContainerTarget.innerHTML = ""
+})

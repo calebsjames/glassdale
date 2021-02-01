@@ -24,10 +24,6 @@
     padding-bottom: 10px; 
 }
 
-#noteHeader {
-    margin-top: 26px;
-}
-
 #noteText {
     height: 200px;
     resize: vertical;
