@@ -5,6 +5,7 @@
       "text": "I Think it works",
       "author": "me",
       "suspect": "me",
+      "criminalId": "1",
       "id": 2
     },
     {
@@ -12,6 +13,7 @@
       "text": "Why are you adding in extra entries",
       "author": "me",
       "suspect": "I suspect I hate you",
+      "criminalId": "1",
       "id": 4
     },
     {
@@ -19,6 +21,7 @@
       "text": "Everything works now",
       "author": "Me",
       "suspect": "It's me, I did it",
+      "criminalId": "2",
       "id": 5
     },
     {
@@ -26,7 +29,32 @@
       "text": "dfsdfsd",
       "author": "fsd",
       "suspect": "fsd",
+      "criminalId": "3",
       "id": 6
+    },
+    {
+      "date": "2021-02-11",
+      "text": "1",
+      "author": "123",
+      "suspect": "12",
+      "criminalId": "2",
+      "id": 7
+    },
+    {
+      "date": "2021-02-11",
+      "text": "Work now",
+      "author": "Me",
+      "suspect": "Do it",
+      "criminalId": "2",
+      "id": 8
+    },
+    {
+      "date": "2021-02-28",
+      "text": "1234",
+      "author": "1234",
+      "suspect": "1234",
+      "criminalId": "7",
+      "id": 9
     }
   ]
 }

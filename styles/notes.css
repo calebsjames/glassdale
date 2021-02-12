@@ -21,7 +21,8 @@
 }
 
 .note {
-    padding-bottom: 10px; 
+    padding-bottom: 10px;
+    margin-left: 10px; 
 }
 
 #noteText {
@@ -37,4 +38,17 @@
 
 #noteHeader {
     margin: 0px 10px
+}
+
+#archivedNotesTitle {
+    margin: 30px 10px 0px 10px;
+
+}
+
+.noteList {
+    margin-left: 10px;
+}
+
+#criminalName {
+
 }
