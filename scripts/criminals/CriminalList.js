@@ -5,7 +5,9 @@ import { useConvictions } from "../convictions/ConvictionProvider.js"
 import { getWitnesses, useWitness } from "../witnesses/WitnessDataProvider.js"
 import { Witness } from "../witnesses/Witnesses.js"
 import { getCriminalFacilities, useCriminalFacilities } from "../facilities/CriminalFacilityDataProvider.js"
+
 import { getFacilities, useFacilities } from "../facilities/FacilityDataProvider.js"
+
 
 //define event hub for listening
 const eventHub = document.querySelector(".container")
@@ -13,7 +15,30 @@ const eventHub = document.querySelector(".container")
 //define location that will house "criminalList" which houses criminal cards
 const criminalContainer = document.querySelector(".criminalsContainer")
 
-//get and use criminalFacilities
+
+// //export function to put criminal slices on DOM
+// export const CriminalList = () => {
+//     //gets criminals from API
+//     getCriminals()
+//     //house sliced criminals in criminalArray and facilities 
+//     .then(() => {
+//         const criminalArray = useCriminals()
+
+//         //get and use criminalFacilities
+//         const criminalFacilities = getCriminalFacilities()
+//             .then(() => {
+//                 const facilityArray = useCriminalFacilities()
+//                 debugger
+//                 //give criminalArray to criminalToDOM 
+//                 criminalToDom(criminalArray, facilityArray)
+//             })
+            
+//         })
+// }
+
+
+
+
 
 //export function to put criminal slices on DOM
 export const CriminalList = () => {
@@ -22,6 +47,7 @@ export const CriminalList = () => {
         .then(getCriminalFacilities)
         .then(
             () => {
+
                 // Pull in the data now that it has been fetched
                 const facilities = useFacilities()
                 const crimFac = useCriminalFacilities()
@@ -38,9 +64,11 @@ export const CriminalList = () => {
 
 
 
+
 const criminalToDom = (criminalsToRender, allFacilities, allRelationships) => {
     // Step 1 - Iterate all criminals
     criminalContainer.innerHTML = criminalsToRender.map(
+
         (criminalObject) => {
             // Step 2 - Filter all relationships to get only ones for this criminal
             const facilityRelationshipsForThisCriminal = allRelationships.filter(cf => cf.criminalId === criminalObject.id)
@@ -52,7 +80,9 @@ const criminalToDom = (criminalsToRender, allFacilities, allRelationships) => {
             })
 
             // Must pass the matching facilities to the Criminal component
+
             return Criminals(criminalObject, facilities)
+
         }
     ).join("")
 }
@@ -60,13 +90,17 @@ const criminalToDom = (criminalsToRender, allFacilities, allRelationships) => {
 
 
 
+
 // //define function to put sliced data on DOM
 // const criminalToDom = (criminalCollection, facility) => {
+
 //     //defin an empty string to house the HTML representation
 //     let criminalHTMLRepresentation = ""
 //     //iterate through criminalArray and add each criminal to the HTMLRep
 //     for (const criminal of criminalCollection) {
+
 //         criminalHTMLRepresentation += Criminals(criminal, facility)
+
 //     }
 
     
@@ -77,6 +111,8 @@ const criminalToDom = (criminalsToRender, allFacilities, allRelationships) => {
 //         ${criminalHTMLRepresentation}
 //         </section>`
 // }
+
+
 
 
 //event listener to filter criminal list by crime
@@ -102,12 +138,19 @@ eventHub.addEventListener("crimeChosen", crimeChosenEvent => {
 })
 
 
+
+
+
+
+
 //event listener to filter criminals by arresting officer
 eventHub.addEventListener("officerSelect", officerChosenEvent => {
     if (officerChosenEvent.detail.selectedOfficer !== "0") {
         
         const criminals = useCriminals()
-        
+        const facilities = useFacilities()
+        const criminalInFacility = useCriminalFacilities()
+
         const officerName = officerChosenEvent.detail.selectedOfficer
         const facilities = useFacilities()
         const crimFacilities = useCriminalFacilities()
