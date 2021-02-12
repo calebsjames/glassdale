@@ -25,14 +25,6 @@ import "./alibis/AlibisButton.js"
 import "./alibis/AlibisList.js"
 import "./facilities/CriminalFacilityDataProvider.js"
 import "./facilities/CriminalFacilityDataProvider.js";
-import { getCriminalFacilities, useCriminalFacilities } from "./facilities/CriminalFacilityDataProvider.js";
 
 
-// getCriminalFacilities()
-// .then(() => {
-//         debugger
-//         const facilityArray = useCriminalFacilities()
-//         console.log('facilityArray: ', facilityArray);
-        
 
-//     })

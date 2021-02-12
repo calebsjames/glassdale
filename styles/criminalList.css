@@ -14,3 +14,9 @@
 .criminalButton {
     margin: 10px;
 }
+
+.criminalsContainer {
+    display: flex;
+    flex-wrap: wrap;
+    border: black solid 2px;
+}

@@ -5,7 +5,8 @@ import { useConvictions } from "../convictions/ConvictionProvider.js"
 import { getWitnesses, useWitness } from "../witnesses/WitnessDataProvider.js"
 import { Witness } from "../witnesses/Witnesses.js"
 import { getCriminalFacilities, useCriminalFacilities } from "../facilities/CriminalFacilityDataProvider.js"
-import { useFacilities } from "../facilities/FacilityDataProvider.js"
+
+import { getFacilities, useFacilities } from "../facilities/FacilityDataProvider.js"
 
 
 //define event hub for listening
@@ -44,7 +45,9 @@ export const CriminalList = () => {
     // Kick off the fetching of both collections of data
     getFacilities()
         .then(getCriminalFacilities)
-        .then(() => {
+        .then(
+            () => {
+
                 // Pull in the data now that it has been fetched
                 const facilities = useFacilities()
                 const crimFac = useCriminalFacilities()
@@ -62,11 +65,10 @@ export const CriminalList = () => {
 
 
 
-
-
-const criminalToDOM = (criminalsToRender, allFacilities, allRelationships) => {
+const criminalToDom = (criminalsToRender, allFacilities, allRelationships) => {
     // Step 1 - Iterate all criminals
-    contentTarget.innerHTML = criminalsToRender.map(
+    criminalContainer.innerHTML = criminalsToRender.map(
+
         (criminalObject) => {
             // Step 2 - Filter all relationships to get only ones for this criminal
             const facilityRelationshipsForThisCriminal = allRelationships.filter(cf => cf.criminalId === criminalObject.id)
@@ -78,20 +80,27 @@ const criminalToDOM = (criminalsToRender, allFacilities, allRelationships) => {
             })
 
             // Must pass the matching facilities to the Criminal component
-            return Criminal(criminalObject, facilities)
+
+            return Criminals(criminalObject, facilities)
+
         }
     ).join("")
 }
 
 
 
+
+
 // //define function to put sliced data on DOM
-// const criminalToDom = (criminalCollection, facilityCollection, criminalInFacilityCollection) => {
+// const criminalToDom = (criminalCollection, facility) => {
+
 //     //defin an empty string to house the HTML representation
 //     let criminalHTMLRepresentation = ""
 //     //iterate through criminalArray and add each criminal to the HTMLRep
 //     for (const criminal of criminalCollection) {
-//         criminalHTMLRepresentation += Criminals(criminal)
+
+//         criminalHTMLRepresentation += Criminals(criminal, facility)
+
 //     }
 
     
@@ -102,14 +111,6 @@ const criminalToDOM = (criminalsToRender, allFacilities, allRelationships) => {
 //         ${criminalHTMLRepresentation}
 //         </section>`
 // }
-
-
-
-
-
-
-
-
 
 
 
@@ -126,10 +127,13 @@ eventHub.addEventListener("crimeChosen", crimeChosenEvent => {
         })
             
         const criminalArray = useCriminals()
+        const facilities = useFacilities()
+        const crimFacilities = useCriminalFacilities()
+
 
         const filteredCriminalsArray = criminalArray.filter(criminalObj => criminalObj.conviction === chosenConvictionObject.name)
 
-        criminalToDom(filteredCriminalsArray)
+        criminalToDom(filteredCriminalsArray, facilities, crimFacilities)
     }
 })
 
@@ -148,6 +152,8 @@ eventHub.addEventListener("officerSelect", officerChosenEvent => {
         const criminalInFacility = useCriminalFacilities()
 
         const officerName = officerChosenEvent.detail.selectedOfficer
+        const facilities = useFacilities()
+        const crimFacilities = useCriminalFacilities()
 
         const chosenOfficerObject = criminals.filter(
             criminalObject => {
@@ -156,7 +162,7 @@ eventHub.addEventListener("officerSelect", officerChosenEvent => {
                 }
             }
         ) 
-        criminalToDom(chosenOfficerObject)
+        criminalToDom(chosenOfficerObject, facilities, crimFacilities)
     }
 })
 
