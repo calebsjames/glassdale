@@ -36,7 +36,7 @@ const renderToDom = (alibiCollection) => {
         
         // const chosenCriminalObj = () => {
             let criminalArray = useCriminals()
-            
+            debugger
             // console.log(chosenCriminalObj.known_associates)
             // console.log(chosenCriminalObj.name)
             const chosenCriminal = criminalArray.find(criminalObj => {

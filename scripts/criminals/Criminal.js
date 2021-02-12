@@ -1,15 +1,23 @@
-export const Criminals = (criminal) => {
+export const Criminals = (criminalObject, facilities) => {
+        
     return `
-    <p class="criminal"> 
-        <b>${criminal.name}</b> <br>
-        <b>Age: </b>${criminal.age} <br>
-        <b>Crime: </b>${criminal.conviction}<br>
-        <b>Term start: </b>${new Date(criminal.incarceration.start).toLocaleDateString('en-US')}<br>
-        <b>Term end: </b>${new Date(criminal.incarceration.end).toLocaleDateString('en-US')}<br>
-        <b>Officer: </b>${criminal.arrestingOfficer}<br>
-        <button id="alibiListButton" value="${criminal.name}">Show Alibis</button>
-        </p>
+    <div class="criminal">
+        <h4>${criminalObject.name}</h4>
+        <div class="criminal__details">
+            <p>Convicted for ${criminalObject.conviction}</p>
+            <p>Arrested by ${criminalObject.arrestingOfficer}</p>
+            <p>Incarcerated between:
+                ${new Date(criminalObject.incarceration.start).toLocaleDateString()} and
+                ${new Date(criminalObject.incarceration.end).toLocaleDateString()}
+            </p>
+            <p>Age: ${criminalObject.age}</p>
+        <div>
+            <h2>Facilities</h2>
+            <ul>
+                ${facilities.map(f => `<li>${f.facilityName}</li>`).join("")}
+            </ul>
+        </div>
+        <button id="alibiListButton" value="${criminalObject.name}">Show Associates</button>            </div>
+    </div>
         `
     }
-    // <b>Alibi Name: </b>${criminal.known_associates[0].name}<br>
-    // <b>Alibis: </b>${criminal.known_associates[0].alibi}<br>
