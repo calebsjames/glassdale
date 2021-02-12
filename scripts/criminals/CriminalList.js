@@ -1,30 +1,49 @@
+//import statements
 import { getCriminals, useCriminals } from "./CriminalDataProvider.js"
 import { Criminals } from "./Criminal.js"
 import { useConvictions } from "../convictions/ConvictionProvider.js"
 import { getWitnesses, useWitness } from "../witnesses/WitnessDataProvider.js"
 import { Witness } from "../witnesses/Witnesses.js"
+import { getCriminalFacilities, useCriminalFacilities } from "../facilities/CriminalFacilityDataProvider.js"
 
 
+//define event hub for listening
 const eventHub = document.querySelector(".container")
+
+//define location that will house "criminalList" which houses criminal cards
 const criminalContainer = document.querySelector(".criminalsContainer")
 
+//get and use criminalFacilities
 
+//export function to put criminal slices on DOM
 export const CriminalList = () => {
-
+    //gets criminals from API
     getCriminals()
-        .then(() => {
-            const criminalArray = useCriminals()
-            criminalToDom(criminalArray)
+    //house sliced criminals in criminalArray and facilities 
+    .then(() => {
+        const criminalArray = useCriminals()
+        const criminalFacilities = getCriminalFacilities()
+            .then(() => {
+                const facilityArray = useCriminalFacilities()
+                debugger
+                //give criminalArray to criminalToDOM 
+                criminalToDom(criminalArray, facilityArray)
+            })
+            
         })
 }
 
-const criminalToDom = (criminalCollection) => {
 
+
+//define function to put sliced data on DOM
+const criminalToDom = (criminalCollection, facility) => {
+    //defin an empty string to house the HTML representation
     let criminalHTMLRepresentation = ""
-    
+    //iterate through criminalArray and add each criminal to the HTMLRep
     for (const criminal of criminalCollection) {
         criminalHTMLRepresentation += Criminals(criminal)
     }
+
     
     criminalContainer.innerHTML = `
         <button id="criminalButton">Criminals</button>
