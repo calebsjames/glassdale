@@ -19,4 +19,5 @@
     display: flex;
     flex-wrap: wrap;
     border: black solid 2px;
+    height: fit-content;
 }
