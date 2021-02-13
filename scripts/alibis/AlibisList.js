@@ -1,6 +1,5 @@
 import { getCriminals, useCriminals } from "../criminals/CriminalDataProvider.js"
 import { AlibisHTML } from "./Alibis.js"
-// import { useConvictions } from "../convictions/ConvictionProvider.js"
 
 const eventHub = document.querySelector(".container")
 const alibiContainer = document.querySelector(".alibiContainer")
@@ -32,23 +31,11 @@ const renderToDom = (alibiCollection) => {
     
     eventHub.addEventListener("alibiButtonClicked", alibiButtonEvent => {
         const chosenCriminalName = alibiButtonEvent.detail.selectedCriminal
-        // console.log(chosenCriminal)
-        
-        // const chosenCriminalObj = () => {
             let criminalArray = useCriminals()
-            debugger
-            // console.log(chosenCriminalObj.known_associates)
-            // console.log(chosenCriminalObj.name)
+            
             const chosenCriminal = criminalArray.find(criminalObj => {
                 return criminalObj.name === chosenCriminalName
             })
-            // console.log(chosenCriminal)
-            // debugger
-        // return chosenCriminal
-    // }
-
-        
-
-
-     renderToDom(chosenCriminal)
+     
+    renderToDom(chosenCriminal)
 })

@@ -1,11 +1,10 @@
 //import statements
-import { getCriminals, useCriminals } from "./CriminalDataProvider.js"
+import { useCriminals } from "./CriminalDataProvider.js"
 import { Criminals } from "./Criminal.js"
 import { useConvictions } from "../convictions/ConvictionProvider.js"
 import { getWitnesses, useWitness } from "../witnesses/WitnessDataProvider.js"
 import { Witness } from "../witnesses/Witnesses.js"
 import { getCriminalFacilities, useCriminalFacilities } from "../facilities/CriminalFacilityDataProvider.js"
-
 import { getFacilities, useFacilities } from "../facilities/FacilityDataProvider.js"
 
 
@@ -16,34 +15,15 @@ const eventHub = document.querySelector(".container")
 const criminalContainer = document.querySelector(".criminalsContainer")
 
 
-// //export function to put criminal slices on DOM
-// export const CriminalList = () => {
-//     //gets criminals from API
-//     getCriminals()
-//     //house sliced criminals in criminalArray and facilities 
-//     .then(() => {
-//         const criminalArray = useCriminals()
-
-//         //get and use criminalFacilities
-//         const criminalFacilities = getCriminalFacilities()
-//             .then(() => {
-//                 const facilityArray = useCriminalFacilities()
-//                 debugger
-//                 //give criminalArray to criminalToDOM 
-//                 criminalToDom(criminalArray, facilityArray)
-//             })
-            
-//         })
-// }
 
 
 
-
-
-//export function to put criminal slices on DOM
+//export function to put criminal slices on DOM used for an event listener here
+    //and imported on main
 export const CriminalList = () => {
-    // Kick off the fetching of both collections of data
+    //fetch facilities which shows facility name, ID, security and capacity
     getFacilities()
+        //fetch criminal facilities which shows criminal IDs with facility IDs
         .then(getCriminalFacilities)
         .then(
             () => {
@@ -51,6 +31,7 @@ export const CriminalList = () => {
                 // Pull in the data now that it has been fetched
                 const facilities = useFacilities()
                 const crimFac = useCriminalFacilities()
+                //WHY DIDN'T I HAVE TO FETCH THIS?
                 const criminals = useCriminals()
 
                 // Pass all three collections of data to render()
@@ -64,9 +45,9 @@ export const CriminalList = () => {
 
 
 
-
+//render to DOM function
 const criminalToDom = (criminalsToRender, allFacilities, allRelationships) => {
-    // Step 1 - Iterate all criminals
+    //Iterate through the criminals with .map and insert it into innerHTML
     criminalContainer.innerHTML = criminalsToRender.map(
 
         (criminalObject) => {
@@ -86,32 +67,6 @@ const criminalToDom = (criminalsToRender, allFacilities, allRelationships) => {
         }
     ).join("")
 }
-
-
-
-
-
-// //define function to put sliced data on DOM
-// const criminalToDom = (criminalCollection, facility) => {
-
-//     //defin an empty string to house the HTML representation
-//     let criminalHTMLRepresentation = ""
-//     //iterate through criminalArray and add each criminal to the HTMLRep
-//     for (const criminal of criminalCollection) {
-
-//         criminalHTMLRepresentation += Criminals(criminal, facility)
-
-//     }
-
-    
-//     criminalContainer.innerHTML = `
-//         <button id="criminalButton">Criminals</button>
-//         <button id="witnessButton">Witnesses</button>
-//         <section class="criminalList">
-//         ${criminalHTMLRepresentation}
-//         </section>`
-// }
-
 
 
 
@@ -164,14 +119,6 @@ eventHub.addEventListener("officerSelect", officerChosenEvent => {
         criminalToDom(chosenOfficerObject, facilities, crimFacilities)
     }
 })
-
-
-
-
-
-
-
-
 
 
 
