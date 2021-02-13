@@ -147,13 +147,12 @@ eventHub.addEventListener("crimeChosen", crimeChosenEvent => {
 eventHub.addEventListener("officerSelect", officerChosenEvent => {
     if (officerChosenEvent.detail.selectedOfficer !== "0") {
         
-        const criminals = useCriminals()
-        const facilities = useFacilities()
-        const criminalInFacility = useCriminalFacilities()
+        
 
         const officerName = officerChosenEvent.detail.selectedOfficer
         const facilities = useFacilities()
         const crimFacilities = useCriminalFacilities()
+        const criminals = useCriminals()
 
         const chosenOfficerObject = criminals.filter(
             criminalObject => {
