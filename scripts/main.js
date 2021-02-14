@@ -9,8 +9,8 @@ OfficerSelect()
 
 import { getCriminals } from "./criminals/CriminalDataProvider.js";
 
-// import { OfficerList } from "./officers/OfficerList.js";
-// OfficerList()
+import { DisplayFacilitiesButton } from "./facilities/FacilitiesButton.js";
+DisplayFacilitiesButton()
 
 import { NoteForm } from "./notes/NoteForm.js";
 NoteForm()
@@ -25,6 +25,7 @@ import "./alibis/AlibisButton.js"
 import "./alibis/AlibisList.js"
 import "./facilities/CriminalFacilityDataProvider.js"
 import "./facilities/CriminalFacilityDataProvider.js";
+import "./facilities/FacilityList.js"
 
 
 
