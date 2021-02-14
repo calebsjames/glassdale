@@ -46,7 +46,7 @@ const render = (noteArray, criminalCollection) => {
 
 
 
-// Standard list function you're used to writing by now. BUT, don't call this in main.js! Why not?
+
 export const NoteList = () => {
     getNotes()
         .then(() => {

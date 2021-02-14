@@ -18,8 +18,8 @@ const criminalContainer = document.querySelector(".criminalsContainer")
 
 
 
-//export function to put criminal slices on DOM used for an event listener here
-    //and imported on main
+/*export function to put criminal slices on DOM used for an event listener here
+and imported on main*/
 export const CriminalList = () => {
     //fetch facilities which shows facility name, ID, security and capacity
     getFacilities()
@@ -49,14 +49,16 @@ export const CriminalList = () => {
 const criminalToDom = (criminalsToRender, allFacilities, allRelationships) => {
     //Iterate through the criminals with .map and insert it into innerHTML
     criminalContainer.innerHTML = criminalsToRender.map(
-
+        //(variable) to reference values in criminalsToRender and pass to Criminals()
         (criminalObject) => {
-            // Step 2 - Filter all relationships to get only ones for this criminal
+            //declare a new variable and filter allRelationships to get cf.criminalId that is equal to criminalObject.id
             const facilityRelationshipsForThisCriminal = allRelationships.filter(cf => cf.criminalId === criminalObject.id)
 
-            // Step 3 - Convert the relationships to facilities with map()
+            //declare a new variable to house .map() of facilityRelationshipsForThisCriminal
             const facilities = facilityRelationshipsForThisCriminal.map(cf => {
+                //newVariable = allFacilities found that id() matches facilityId (criminalFacilities)
                 const matchingFacilityObject = allFacilities.find(facility => facility.id === cf.facilityId)
+                //return the newVariable
                 return matchingFacilityObject
             })
 
