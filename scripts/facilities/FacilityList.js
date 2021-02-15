@@ -2,7 +2,7 @@ import { useCriminals } from "../criminals/CriminalDataProvider.js"
 import { useCriminalFacilities } from "./CriminalFacilityDataProvider.js"
 import { Facilities } from "./Facility.js"
 import { useFacilities } from "./FacilityDataProvider.js"
-
+import { criminalsToDom } from "../criminals/CriminalList.js"
 //define event hub for listening
 const eventHub = document.querySelector(".container")
 
@@ -16,7 +16,6 @@ const criminalContainer = document.querySelector(".criminalsContainer")
 const facilitiesToDom = (criminalsToRender, allFacilities, allRelationships) => {
     //Iterate through the facilities with .map and insert it into innerHTML
     //This will be the main content of the cards
-    debugger
     criminalContainer.innerHTML = allFacilities.map(
         //(variable) to reference values in allFacilities and pass to Facilities()
         (facilityObject) => {
@@ -32,8 +31,7 @@ const facilitiesToDom = (criminalsToRender, allFacilities, allRelationships) => 
                 return matchingCriminalObject
             })
 
-            // Must pass the matching facilities to the Criminal component
-
+            //pass facilityObject and the matching criminals to Facilities()
             return Facilities(facilityObject, criminals)
 
         }
@@ -48,6 +46,15 @@ eventHub.addEventListener("displayFacilitiesClicked", event => {
     const facilities = useFacilities()
     const crimFacilities = useCriminalFacilities()
     
-        facilitiesToDom(criminals, facilities, crimFacilities)
-    }
-)
+    criminalsToDom(criminals, facilities, crimFacilities)
+})
+
+
+eventHub.addEventListener("displayCriminalsClicked", event => {
+    
+    const criminals = useCriminals()
+    const facilities = useFacilities()
+    const crimFacilities = useCriminalFacilities()
+    
+    facilitiesToDom(criminals, facilities, crimFacilities)
+})

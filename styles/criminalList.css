@@ -20,4 +20,16 @@
     flex-wrap: wrap;
     border: black solid 2px;
     height: fit-content;
+    margin-top: 22px
+}
+
+.facility {
+    margin: 10px;
+    padding: 10px;
+    border: 2px black dotted;
+    flex: 10%
+}
+
+.displayFacilities {
+    margin-left: 10px
 }
