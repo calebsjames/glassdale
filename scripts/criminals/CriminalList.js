@@ -35,7 +35,7 @@ export const CriminalList = () => {
                 const criminals = useCriminals()
 
                 // Pass all three collections of data to render()
-                criminalToDom(criminals, facilities, crimFac)
+                criminalsToDom(criminals, facilities, crimFac)
             }
         )
 }
@@ -46,7 +46,7 @@ export const CriminalList = () => {
 
 
 //render to DOM function
-const criminalToDom = (criminalsToRender, allFacilities, allRelationships) => {
+export const criminalsToDom = (criminalsToRender, allFacilities, allRelationships) => {
     //Iterate through the criminals with .map and insert it into innerHTML
     criminalContainer.innerHTML = criminalsToRender.map(
         //(variable) to reference values in criminalsToRender and pass to Criminals()
@@ -90,7 +90,7 @@ eventHub.addEventListener("crimeChosen", crimeChosenEvent => {
 
         const filteredCriminalsArray = criminalArray.filter(criminalObj => criminalObj.conviction === chosenConvictionObject.name)
 
-        criminalToDom(filteredCriminalsArray, facilities, crimFacilities)
+        criminalsToDom(filteredCriminalsArray, facilities, crimFacilities)
     }
 })
 
@@ -118,7 +118,7 @@ eventHub.addEventListener("officerSelect", officerChosenEvent => {
                 }
             }
         ) 
-        criminalToDom(chosenOfficerObject, facilities, crimFacilities)
+        criminalsToDom(chosenOfficerObject, facilities, crimFacilities)
     }
 })
 

@@ -2,7 +2,7 @@ export const Facilities = (facilityObject, criminals) => {
         
     return `
     <div class="facility">
-        <h2>${facilityObject.facilityName}</h4>
+        <h3>${facilityObject.facilityName}</h3>
         <div class="facilityDetails">
             <p>Security Level: ${facilityObject.securityLevel}</p>
             <p>Capacity: ${facilityObject.capacity}</p>
